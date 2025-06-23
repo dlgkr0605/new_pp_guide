@@ -1,0 +1,1180 @@
+@charset "utf-8";
+
+
+
+/* 슬라이드 /////////////////////////////  */
+
+.main-slider {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.slide {
+  position: relative;
+  width: 5%;
+  transition: width 0.5s ease;
+  overflow: hidden;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide.active {
+  width: 90%;
+}
+
+.slide:nth-child(1) {
+  background-image: url("../img/메인배너/banner01__.jpg");
+}
+
+.slide:nth-child(2) {
+  background-image: url("../img/메인배너/banner02__.jpg");
+}
+
+.slide:nth-child(3) {
+  background-image: url("../img/메인배너/banner03__.jpg");
+}
+
+.slide-num {
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  color: white;
+  font-size: 18px;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+}
+
+.slide.active .slide-num {
+  display: none;
+}
+
+
+
+
+
+.slide:nth-child(1) {
+  background-image: url("../img/메인배너/banner01__.jpg");
+}
+
+.slide:nth-child(2) {
+  background-image: url("../img/메인배너/banner02__.jpg");
+}
+
+.slide:nth-child(3) {
+  background-image: url("../img/메인배너/banner03__.jpg");
+}
+
+
+
+
+
+.slide.active .slide-text {
+  display: block;
+}
+.slide.active .slide-text .info {
+  display: none;
+}
+
+
+
+.slide-text h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.slide-text p {
+  font-size: 18px;
+}
+
+.slide-num {
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  color: white;
+  font-size: 18px;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+  opacity: 1;
+}
+
+.slide.active .slide-num {
+  display: none;
+}
+
+
+/* 전시 영역!!!!!!!!!!!!!!! */
+
+.exhibition {
+  padding: 60px 0;
+  background: #fff;
+  text-align: center;
+  position: relative;
+
+}
+
+.exhibition h2 a {
+  font-size: 36px;
+  color: #000;
+  text-decoration: none;
+  color: #404040;
+  font-family: 'loves';
+  font-weight: 600;
+  font-size: 3.125rem;
+}
+
+.tab {
+  margin: 20px 0;
+  font-family: 'suit';
+}
+
+.tab span {
+  margin: 0 12px;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  font-family: 'suit';
+}
+
+.tab .on {
+  color: #000;
+  font-weight: bold;
+  border-bottom: 3px solid #428EFF;
+  padding-bottom: 5px;
+  color: #404040;
+}
+
+.content-box { /* 내용 전체 덩어리 = 슬라이드가 실제 보여지는 공간과 동일한 너비!! */
+  width: 1240px;
+  margin: 0 auto;
+
+  position: relative; /* button 위치설정! */
+}
+
+.exh-scroll {
+  width: 100%;
+  overflow: hidden;
+  outline: 3px solid red;
+  
+  /* 드래그 커서 제거 */
+  margin-top: 40px;
+  /* padding-bottom: 40px; */
+  /*
+  overflow-x: auto;
+  scroll-behavior: smooth; 
+  scrollbar-width: thin;
+  scrollbar-color: #428EFF #eee; */
+}
+
+/* .exh-scroll:active {
+  cursor: grabbing;
+
+}
+
+.exh-scroll.dragging {
+  cursor: grabbing !important;
+}
+
+.exh-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.exh-scroll::-webkit-scrollbar-thumb {
+  background: #428EFF;
+  border-radius: 10px;
+}
+
+.exh-scroll::-webkit-scrollbar-track {
+  background: #eee;
+} */
+
+.exh-track {
+  /* display: flex;
+  gap: 20px;
+  width: max-content; */
+
+  width: 200%;
+  /* .exh-item 4개가 1세트라고 했을 때, 총 8개의 item 들어올 수 있는 너비!!! */
+}
+
+.exh-item {
+  width: 11.5%;
+  margin: 0 0.5%;
+  float: left;
+  /* flex: 0 0 auto;
+  width: 300px; */
+  background: #fff;
+  box-shadow: 0 2px 12px #ccc;
+  /* padding: 10px; 
+  box-sizing: border-box;*/
+  border-radius: 10px;
+  overflow: hidden;
+
+  
+  text-align: left;
+  font-family: 'suit';
+  cursor: pointer;
+
+
+  /* outline: 1px solid blue; */
+}
+
+.exh-item img {
+  width: 100%;
+  /* border-radius: 4px; */
+  display: block;
+}
+
+.exh-item .info-box {
+  padding: 10px;
+}
+
+.exh-item .loc {
+  font-weight: bold;
+  font-size: 16px;
+  /* margin-top: 10px; */
+  color: #404040;
+}
+
+.exh-item .title {
+  font-size: 18px;
+  /* 최대 2줄을 기준으로 높이설정! */
+  height: 52px;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 확인하고 수정하세요 */
+}
+
+.exh-item .date {
+  font-size: 16px;
+  color: #999;
+  margin-top: 16px;
+}
+
+/* 버튼 */
+.scroll-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.scroll-btn img {
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+
+.scroll-btn.prev {
+  left: -100px;
+}
+
+.scroll-btn.next {
+  right: -100px;
+}
+
+
+
+
+
+
+
+/* 프로그램//////////////////////////////////////// */
+
+
+.program {
+  background: #7BB0FF;
+  padding: 100px 0;
+  color: white;
+  text-align: center;
+}
+
+.program h2 {
+
+  margin-bottom: 50px;
+  font-family: 'loves';
+  font-weight: 600;
+  font-size: 3rem;
+}
+.program h2 span.k-title {
+  font-size: 1.2rem;
+  font-weight: normal;
+  display: block;
+}
+
+
+
+.program-tab {
+  width: 1240px;
+  margin: 0 auto 60px;
+  position: relative;
+  height: 48px;
+}
+
+
+.tab-btn-wrap {
+  width: 100%;
+  height: 100%;
+  border-bottom: 4px solid #b2cde9;
+  font-size: 0;
+}
+
+.tab-btn {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  font-size: 25px;
+  font-weight: bold;
+  color: #b2cde9;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  line-height: 20px;
+  font-family: 'suit';
+  font-weight: 600;
+}
+
+.tab-btn.active {
+  color: white;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: white;
+}
+
+.program-wrap { /* 선택된 탭메뉴의 내용이 보여지는 공간!!!! */
+  width: 1240px;
+  margin: 0 auto;
+}
+.program-wrap > div {
+  display: none;
+}
+.program-wrap > div#edu {
+  display: block;
+}
+
+.edu-box,
+.work-box {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+
+.program-photo {
+  display: table-cell;
+  width: 400px;
+  position: relative;
+  vertical-align: top;
+  padding-right: 100px;
+}
+
+.main-photo {
+  position: relative;
+  z-index: 1;
+}
+
+.main-photo::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  /* 아래로 */
+  left: 15px;
+  /* 오른쪽으로 */
+  width: 100%;
+  height: 100%;
+  background-color: #68A4FF;
+  z-index: -1;
+
+}
+
+.main-photo img {
+  width: 100%;
+  display: block;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+}
+
+.arrow img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.program-desc {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding-left: 80px;
+  position: relative;
+}
+
+.program-inner {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.program-desc h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.program-desc h3 a {
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-family: 'suit';
+}
+
+.description {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 40px;
+  font-family: 'suit';
+}
+
+.program-inner h3 {
+  font-family: 'wensley';
+}
+
+.thumbs {
+  margin-top: 40px;
+  white-space: nowrap;
+  margin-bottom: 30px;
+}
+
+.thumbs img {
+  width: 130px;
+  margin-right: 20px;
+  vertical-align: top;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.reserve-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.reserve-btn a {
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.reserve-btn a span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: white;
+}
+
+/* story///////////////////////////////////////////////////////////////////////// */
+
+
+.story {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  height: 880px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.story {
+  font-family: 'suit';
+}
+
+.story::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.center-content h2 {
+
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #404040;
+}
+
+.center-content h2 a {
+  color: #404040;
+  font-size: 3.125rem;
+  font-family: 'wensley';
+}
+
+.center-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #404040;
+  margin-bottom: 20px;
+}
+
+.center-content .btn-more {
+  font-size: 14px;
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 2px;
+}
+
+/* story///////////////////////////////////////////////// */
+
+/* artists 섹션 - 텍스트와 이미지 모두 회전 효과 제거 */
+.artists {
+  margin-top: 100px;
+  position: absolute;
+  width: 1240px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.artist::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 공통 이미지 크기 + 효과 */
+.artist img,
+.artist .photo img {
+  width: 150px;
+  display: block;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.artist:hover img,
+.artist:hover .photo img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* 공통 텍스트 스타일 */
+.artist .info {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.artist .info span {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+/* center content 마진 */
+.center-content {
+  margin-top: 100px;
+}
+
+/* ========== 개별 작가 위치 및 정렬 ========== */
+
+.artist.choi {
+  position: absolute;
+  top: 330px;
+  left: 0px;
+  text-align: left;
+}
+
+.artist.choi .info {
+  text-align: left;
+  margin-top: 8px;
+}
+
+.artist.seo {
+  position: absolute;
+  top: 20px;
+  left: 350px;
+  width: 250px;
+}
+
+.artist.seo .photo {
+  float: left;
+  width: 150px;
+}
+
+.artist.seo .info {
+  float: left;
+  margin-left: 10px;
+  width: 80px;
+  text-align: left;
+}
+
+.artist.kwon {
+  position: absolute;
+  top: 100px;
+  right: 40px;
+  width: 280px;
+}
+
+.artist.kwon .photo {
+  float: left;
+  width: 150px;
+}
+
+.artist.kwon .info {
+  float: left;
+  margin-left: 10px;
+  width: 110px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #444;
+  margin-top: 0;
+}
+
+.artist.kwon .info span {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.artist.ron {
+  position: absolute;
+  bottom: 50px;
+  left: 380px;
+  width: 250px;
+}
+
+.artist.ron .photo {
+  float: left;
+  width: 150px;
+}
+
+.artist.ron .info {
+  float: left;
+  margin-left: 10px;
+  width: 80px;
+  text-align: left;
+}
+
+.artist.yang {
+  position: absolute;
+  bottom: 180px;
+  right: 0px;
+  text-align: right;
+}
+
+.artist.yang .info {
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* 자세히보기 버튼 hover 효과 */
+.btn-more {
+  display: inline-block;
+  color: #222;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  margin-top: 20px;
+
+}
+
+.btn-more:hover {
+  color: #428EFF;
+  border-color: #428EFF;
+  font-weight: bold;
+
+}
+
+/* ===== VISIT Section ===== */
+
+.visit {
+  width: 100%;
+  padding: 80px 0 100px 0;
+  background: #7BB0FF;
+  text-align: center;
+  margin-top: 150px;
+  font-family: 'suit';
+}
+
+.visit h2 {
+  font-size: 3.125rem;
+  margin-bottom: 30px;
+  color: white;
+  font-weight: bold;
+  font-family: 'loves';
+  font-weight: 600;
+}
+
+
+.visit-wrap {
+  width: 1240px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.visit-box {
+  width: 290px;
+  height: 580px;
+  float: left;
+  margin-right: 26px;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.visit-box:last-child {
+  margin-right: 0;
+}
+
+.visit-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+.visit-box .info {
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  text-align: left;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.visit-box .info h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+.visit-box .info .time-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+.visit-box .info p {
+  font-size: 16px;
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.visit-box .info .note {
+  font-size: 16px;
+  color: #ccc;
+  margin-top: 12px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+
+
+.visit-box:hover img {
+  opacity: 0.1;
+}
+
+.visit-box:hover .info h3,
+.visit-box:hover .info .time-title,
+.visit-box:hover .info p,
+.visit-box:hover .info .note {
+  color: white;
+  text-shadow: none;
+}
+
+
+
+/* artists 섹션 */
+.artists {
+  margin-top: 100px;
+  position: absolute;
+  width: 1240px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.artist::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.artist img,
+.artist .photo img {
+  width: 150px;
+  display: block;
+  filter: grayscale(100%);
+  transition: all 0.4s ease;
+}
+
+.artist:hover img,
+.artist:hover .photo img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.artist .info {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.artist .info span {
+  display: block;
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.center-content {
+  margin-top: 100px;
+}
+
+.artist.choi {
+  position: absolute;
+  top: 330px;
+  left: 0px;
+  text-align: left;
+}
+
+.artist.choi .info {
+  text-align: left;
+  margin-top: 8px;
+}
+
+.artist.seo {
+  position: absolute;
+  top: 20px;
+  left: 350px;
+  width: 250px;
+}
+
+.artist.seo .photo {
+  float: left;
+  width: 150px;
+}
+
+.artist.seo .info {
+  float: left;
+  margin-left: 10px;
+  width: 80px;
+  text-align: left;
+}
+
+.artist.kwon {
+  position: absolute;
+  top: 100px;
+  right: 40px;
+  width: 280px;
+}
+
+.artist.kwon .photo {
+  float: left;
+  width: 150px;
+}
+
+.artist.kwon .info {
+  float: left;
+  margin-left: 10px;
+  width: 110px;
+  text-align: left;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #444;
+  margin-top: 0;
+}
+
+.artist.kwon .info span {
+  display: block;
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 4px;
+}
+
+.artist.ron {
+  position: absolute;
+  bottom: 50px;
+  left: 380px;
+  width: 250px;
+}
+
+.artist.ron .photo {
+  float: left;
+  width: 150px;
+}
+
+.artist.ron .info {
+  float: left;
+  margin-left: 10px;
+  width: 80px;
+  text-align: left;
+}
+
+.artist.yang {
+  position: absolute;
+  bottom: 180px;
+  right: 0px;
+  text-align: right;
+}
+
+.artist.yang .info {
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* 자세히보기 버튼 호버 효과 */
+.more {
+  display: inline-block;
+
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.more:hover {
+  color: #428EFF;
+  font-weight: bold;
+}
+
+
+/* NOTICE 섹션 */
+.notice {
+  width: 880px;
+  margin: 100px auto;
+  text-align: center;
+  font-family: 'suit';
+}
+
+.notice h2 {
+  font-size: 3.125rem;
+  margin-bottom: 40px;
+
+  color: #404040;
+  font-family: 'loves';
+  font-weight: 600;
+}
+
+.notice ul {
+  margin-top: 40px;
+}
+
+.notice li {
+  position: relative;
+  border-top: 1px solid #428EFF;
+  border-bottom: 1px solid #428EFF;
+  text-align: left;
+}
+
+.notice li+li {
+  border-top: none;
+}
+
+.notice li a {
+  display: block;
+  padding: 20px 0 20px 80px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  min-height: 70px;
+  color: #404040;
+  /* 내용 높이 확보 */
+}
+
+/* 날짜 박스 */
+.notice .date {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  text-align: center;
+  width: 60px;
+  line-height: 20px;
+  color: #404040;
+}
+
+.notice .date strong {
+  display: block;
+  font-size: 2.75rem;
+  font-weight: 600;
+  color: #000;
+  line-height: 1;
+}
+
+.notice .date span {
+  font-size: 0.9375rem;
+  color: #888;
+  display: block;
+  margin-top: 5px;
+}
+
+/* 텍스트 박스 */
+.notice .text {
+  font-size: 1.625rem;
+  color: #333;
+  line-height: 4;
+  margin-left: 30px;
+}
+
+/* 더보기 버튼 */
+.notice .more {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #222;
+  text-decoration: none;
+  float: right;
+}
+
+.notice .more:hover {
+  color: #428EFF;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+/* ============ Footer ============ */
+.footer {
+  background-color: #428EFF;
+  color: #fff;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 150px;
+  font-family: 'suit';
+}
+
+.footer-wrap {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 30px 0 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.footer-left {
+  float: left;
+  width: 1100px;
+  position: relative;
+}
+
+.footer-logo {
+  display: block;
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.footer-info {
+  margin-top: 10px;
+}
+
+.footer-info li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+
+.footer-right {
+  float: right;
+  position: relative;
+}
+
+.footer-wa {
+  width: 80px;
+  margin-top: 170px;
+}
+
+.footer-bottom {
+  background-color: #404040;
+  overflow: hidden;
+  position: relative;
+  height: 50px;
+  line-height: 3;
+}
+
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  display: inline-block;
+}

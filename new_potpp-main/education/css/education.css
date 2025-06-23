@@ -1,0 +1,376 @@
+@charset "utf-8";
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul, ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #444;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+/* Font */
+@font-face {
+  font-family: 'suit';
+  src: url(../../font/SUIT-otf/SUIT-Regular.otf) format('opentype');
+}
+@font-face {
+  font-family: 'wensley';
+  src: url(../../font/Wensley/WensleyDemo.ttf) format('opentype');
+}
+
+body {
+  font-family: 'suit', sans-serif;
+  background: #fff;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  height: 100px;
+  background-color: white;
+  position: relative;
+}
+.header-wrap {
+  width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+.logo {
+  float: left;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 90px;
+}
+.menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 50px;
+  z-index: 999;
+}
+.menu li {
+  position: relative;
+}
+.menu li a {
+  display: inline-block;
+  padding-bottom: 4px;
+  color: #404040;
+  transition: color 0.3s;
+  position: relative;
+}
+.menu li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #428EFF;
+  transition: width 0.3s ease;
+}
+.menu li a:hover {
+  color: #428EFF;
+}
+.menu li a:hover::after {
+  width: 100%;
+}
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  min-width: 160px;
+  z-index: 1000;
+}
+.menu li:hover .submenu {
+  display: block;
+}
+.submenu li a {
+  display: block;
+  padding: 10px 20px;
+  color: #404040;
+  font-size: 16px;
+}
+.submenu li a:hover {
+  background-color: #f0f0f0;
+  color: #428EFF;
+}
+
+/* ICONS */
+.icons {
+  float: right;
+  height: 100%;
+}
+.icons li {
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  margin-left: 20px;
+  height: 100%;
+  padding-top: 22px;
+}
+.icons img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: 0 auto 5px;
+}
+.icons p {
+  color: #404040;
+  font-family: 'suit';
+  font-weight: 400;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* SEARCH */
+.search-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  padding: 40px 100px;
+  display: none;
+  z-index: 999;
+}
+.search-box form {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+.search-container {
+  border-bottom: 2px solid #000;
+  padding: 10px 0;
+}
+.search-container input[type="text"] {
+  width: 100%;
+  padding: 10px 40px 10px 0;
+  font-size: 18px;
+  border: none;
+  background: transparent;
+  color: #000;
+}
+.search-container button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.search-container button img {
+  width: 22px;
+  height: 22px;
+}
+
+/* MAIN VISUAL */
+.main-visual {
+  width: 100%;
+  height: 400px;
+  position: relative;
+}
+.visual-bg {
+  width: 100%;
+  height: 100%;
+  background: url('../../img/서브페이지_배너/education_ban.png') no-repeat center center;
+  background-size: cover;
+}
+.visual-wrap {
+  width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}
+.visual-text {
+  position: absolute;
+  bottom: 10%;
+  left: 0%;
+  color: white;
+  text-align: left;
+}
+.lst {
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.bar {
+  float: left;
+  width: 6px;
+  height: 24px;
+  background: #428EFF;
+  margin-right: 10px;
+}
+.txt {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+}
+.lst::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.visual-text h2 {
+  font-size: 48px;
+  font-family: 'wensley';
+}
+
+/* FILTER */
+.filter-wrap {
+  width: 1240px;
+  margin: 40px auto 20px;
+  text-align: center;
+}
+.tab {
+  display: inline-block;
+}
+.tab span {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 25px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 4px;
+}
+.tab span.on {
+  border-bottom: 3px solid #428EFF;
+  color: #428EFF;
+  font-weight: bold;
+}
+
+/* EDUCATION ITEMS */
+.education-items {
+  width: 1240px;
+  margin: 40px auto;
+  overflow: hidden;
+}
+.edu-item {
+  float: left;
+  width: 290px;
+  margin-right: 26.6px;
+  margin-bottom: 40px;
+  background: #f8f8f8;
+  padding: 12px;
+  border-radius: 6px;
+  min-height: 380px;
+}
+.edu-item:nth-child(4n) {
+  margin-right: 0;
+}
+.edu-item img {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.edu-item .title {
+  font-size: 16px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.edu-item .date {
+  font-size: 14px;
+  color: #666;
+}
+
+/* PAGER */
+.pager {
+  width: 1240px;
+  margin: 30px auto 100px;
+  text-align: right;
+}
+.pager ul {
+  display: inline-block;
+}
+.pager li {
+  display: inline-block;
+  margin: 0 6px;
+}
+.pager li a {
+  padding: 8px 11px;
+  color: #333;
+  font-size: 15px;
+  text-decoration: none;
+}
+.pager li.on a {
+  color: #428EFF;
+  font-weight: bold;
+}
+.pager li.prev a,
+.pager li.next a {
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  background-color: #428EFF;
+  color: #fff;
+  margin-top: 150px;
+}
+.footer-wrap {
+  width: 1240px;
+  margin: 0 auto;
+  padding: 30px 0;
+  overflow: hidden;
+}
+.footer-left {
+  float: left;
+  width: 1100px;
+}
+.footer-logo {
+  width: 200px;
+  margin-bottom: 10px;
+  display: block;
+}
+.footer-info li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 4px;
+}
+.footer-right {
+  float: right;
+}
+.footer-wa {
+  width: 80px;
+  margin-top: 170px;
+}
+.footer-bottom {
+  background: #404040;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.marquee-track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  display: inline-block;
+}
