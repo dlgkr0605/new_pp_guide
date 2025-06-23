@@ -305,19 +305,17 @@
 }
 
 .program h2 {
-
   margin-bottom: 50px;
   font-family: 'loves';
   font-weight: 600;
   font-size: 3rem;
 }
+
 .program h2 span.k-title {
   font-size: 1.2rem;
   font-weight: normal;
   display: block;
 }
-
-
 
 .program-tab {
   width: 1240px;
@@ -325,7 +323,6 @@
   position: relative;
   height: 48px;
 }
-
 
 .tab-btn-wrap {
   width: 100%;
@@ -363,24 +360,22 @@
   background: white;
 }
 
-.program-wrap { /* 선택된 탭메뉴의 내용이 보여지는 공간!!!! */
+.program-wrap {
   width: 1240px;
   margin: 0 auto;
 }
-.program-wrap > div {
+
+.hidden {
   display: none;
 }
-.program-wrap > div#edu {
-  display: block;
-}
 
+/* 탭 콘텐츠 박스 */
 .edu-box,
 .work-box {
   display: table;
-  table-layout: fixed;
   width: 100%;
+  table-layout: fixed;
 }
-
 
 .program-photo {
   display: table-cell;
@@ -399,14 +394,11 @@
   content: '';
   position: absolute;
   top: 15px;
-  /* 아래로 */
   left: 15px;
-  /* 오른쪽으로 */
   width: 100%;
   height: 100%;
   background-color: #68A4FF;
   z-index: -1;
-
 }
 
 .main-photo img {
@@ -445,10 +437,7 @@
 .program-desc h3 {
   font-size: 30px;
   margin-bottom: 10px;
-}
-
-.program-desc h3 a {
-  color: #fff;
+  font-family: 'wensley';
 }
 
 .subtitle {
@@ -463,10 +452,6 @@
   line-height: 2;
   margin-bottom: 40px;
   font-family: 'suit';
-}
-
-.program-inner h3 {
-  font-family: 'wensley';
 }
 
 .thumbs {

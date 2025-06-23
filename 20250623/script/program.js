@@ -6,56 +6,47 @@ $(function () {
     $(this).addClass('active');
 
     if ($(this).hasClass('edu')) {
-      $('.edu-box').removeClass('hidden');
-      $('.work-box').addClass('hidden');
+      $('#edu').show();
+      $('#workshop').hide();
     } else {
-      $('.work-box').removeClass('hidden');
-      $('.edu-box').addClass('hidden');
+      $('#workshop').show();
+      $('#edu').hide();
     }
   });
 
-  // 슬라이드 롤링 함수
-  function setupSlide(mainId, thumbContainerSelector, arrowSelector) {
+  // 슬라이드 함수
+  function setupSlide(mainId, thumbSelector, arrowSelector) {
     const $main = $(mainId);
-    const $thumbsContainer = $(thumbContainerSelector);
+    const $thumbs = $(thumbSelector);
+    const $arrow = $(arrowSelector);
 
-    function bindThumbClick() {
-      $thumbsContainer.find('.thumb').off('click').on('click', function () {
+    function bind() {
+      $thumbs.find('.thumb').off('click').on('click', function () {
         const newSrc = $(this).attr('src');
         const oldSrc = $main.attr('src');
-        const $thumb = $(this);
-
-        // 부드럽게 교체
         $main.fadeOut(300, function () {
           $main.attr('src', newSrc).fadeIn(300);
-          $thumb.attr('src', oldSrc); // 썸네일과 교체
         });
+        $(this).attr('src', oldSrc);
       });
     }
 
-    bindThumbClick();
+    bind();
 
-    $(arrowSelector).on('click', function (e) {
+    $arrow.on('click', function (e) {
       e.preventDefault();
       const currentSrc = $main.attr('src');
-      const $firstThumb = $thumbsContainer.find('.thumb').first();
-      const nextSrc = $firstThumb.attr('src');
-
-      // 부드럽게 대표 이미지 변경
+      const $first = $thumbs.find('.thumb').first();
+      const nextSrc = $first.attr('src');
       $main.fadeOut(300, function () {
         $main.attr('src', nextSrc).fadeIn(300);
       });
-
-      // 썸네일 롤링
-      $firstThumb.remove();
-      $thumbsContainer.append(`<img src="${currentSrc}" alt="" class="thumb">`);
-
-      // 새로 추가된 썸네일 이벤트 다시 바인딩
-      bindThumbClick();
+      $first.remove();
+      $thumbs.append(`<img src="${currentSrc}" class="thumb">`);
+      bind();
     });
   }
 
-  // 각각 슬라이드에 적용
   setupSlide('#main-edu', '.edu-thumbs', '.edu-next');
   setupSlide('#main-work', '.work-thumbs', '.work-next');
 });
